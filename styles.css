@@ -1,0 +1,271 @@
+:root {
+    --neutral: #000000;          /* Black as the main dark color */
+    --base: #ffffff;             /* White for text */
+    --stroke: #2a2a2a;           /* Dark gray for borders */
+    --secondary: #ff4d4d;        /* Bright red for secondary elements */
+    --highlight: #ff9999;        /* Light red/pink for highlights */
+    --main: #1a1a1a;            /* Dark gray for project tiles */
+    --accent: #ff3333;           /* Vibrant red for accents */
+}
+
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Serif", sans-serif;
+    background-color: var(--neutral);
+    text-align: center;
+    color: var(--base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-size: 60px;
+    color: var(--base);
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--neutral);
+    padding: 20px 0;
+    font-size: 20px;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--base);
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+section {
+    padding: 70px 0;
+    min-height: 100vh;
+}
+
+.welcome-animation {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+    animation-delay: 0.3s;
+}
+
+.typewriter {
+    overflow: hidden; 
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 1.8s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: var(--highlight); }
+}
+
+#welcome-section {
+    background-color: var(--neutral);
+    color: var(--base);
+    display: flex;
+    flex-direction: column;
+}
+
+#welcome-section h1 {
+    margin-top: 30vh;
+}
+
+#welcome-section p {
+    color: var(--highlight);
+    font-size: 25px;
+    margin: 25px 0;
+    font-style: italic;
+}
+
+.work {
+    background: linear-gradient(90deg, #fff, var(--highlight), #fff);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientPulse 3s linear infinite;
+}
+
+@keyframes gradientPulse {
+    0% { background-position: 0% center }
+    100% { background-position: 200% center }
+}
+
+#projects {
+    background-color: var(--main);
+    color: var(--base);
+}
+
+#projects h1 {
+    border-bottom: 5px solid var(--secondary);
+    width: fit-content;
+    margin: auto;
+    color: var(--base);
+}
+
+#projects .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    place-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#projects .project-tile {
+    height: 525px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main);
+    color: var(--base);
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 8px 8px 10px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--stroke);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects .project-tile:hover {
+    transform: translateY(-10px);
+    box-shadow: 12px 12px 15px 7px rgba(255, 77, 77, 0.2);
+}
+
+#projects .project-tile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+#projects .project-tile p {
+    font-size: 25px;
+    padding: 10px;
+}
+
+#projects .project-tile span {
+    opacity: 0%;
+    padding: 0 5px;
+    color: var(--secondary);
+}
+
+#projects .project-tile:hover span {
+    opacity: 100%;
+    transition: opacity 0.25s ease-in;
+}
+
+.show-all {
+    text-decoration: none;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 0px 15px;
+    background-color: var(--secondary);
+    color: var(--neutral);
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+}
+
+.show-all:hover {
+    background-color: var(--accent);
+    color: var(--base);
+}
+
+#contact {
+    background-color: var(--neutral);
+    color: var(--base);
+}
+
+#contact h1 {
+    margin-top: 300px;
+}
+
+#contact .coffee-question {
+    color: var(--highlight);
+    font-size: 25px;
+    font-style: italic;
+}
+
+#contact .social-medias {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#contact .social-media {
+    text-decoration: none;
+    color: var(--base);
+    transition: transform 0.2s ease-in, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    font-size: 22px;
+}
+
+#contact .social-media:hover {
+    transform: translateY(10px);
+    color: var(--secondary);
+}
+
+footer {
+    border-top: 3px solid var(--secondary);
+    color: var(--base);
+    font-size: 25px;
+    padding: 30px;
+    background-color: var(--neutral);
+}
+
+@media only screen and (width: 700px) {
+    h1 {
+        font-size: 50px;
+    }
+    #projects .project-tile {
+        height: 600px;
+        width: 100%;
+    }
+}
